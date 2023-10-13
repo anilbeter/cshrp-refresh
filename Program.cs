@@ -1,7 +1,15 @@
-﻿Console.WriteLine("Do you want to go\na: left\nb: right?");
-string input = Console.ReadLine();
-if (input == "a")
-    Console.WriteLine("You went to left");
+﻿int playerHp = 0;
 
-if (input == "b") 
-    Console.WriteLine("You went to right");
+if (playerHp == 100)
+{
+    Console.WriteLine("You are full hp");
+}
+else if (playerHp <= 50)
+{
+    Console.WriteLine("You are bruised");
+}
+else if (playerHp <= 0)
+{
+    Console.WriteLine("You are dead");
+}
+// You are bruised
