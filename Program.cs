@@ -11,13 +11,26 @@ string input1 = Console.ReadLine();
 //Create if-Statements that react to the users input.
 //It could i.e. respond to decision a:
 //"You went into the castle and got spooked by ghosts"
-
-
-
+if (input1 == "a")
+{
+    Console.WriteLine("You went into the castle and got spooked by ghosts");
+}
+else if (input1 == "b")
+{
+    Console.WriteLine("Why did you choose to go woody?");
+}
+else if (input1 == "c")
+{
+    Console.WriteLine("Hmmm, rainbow wonderland ha?");
+}
 
 //b) Handle invalid input
 //When the player enters anything different than a||b or c
 //he should get the message: "Invalid input!"
+else
+{
+    Console.WriteLine("Invalid input!");
+}
 
 
 Console.WriteLine("-----------------2) Find the Bug-----------------");
@@ -38,11 +51,13 @@ if (isPlayerInvulnerable == true)
 }
 if (playerHasArmor == true)
 {
-    playerHp -= damage / 2;
+    if(!isPlayerInvulnerable) 
+        playerHp -= damage / 2;
 }
 if (playerHasArmor == false)
 {
-    playerHp -= damage;
+    if (!isPlayerInvulnerable)
+        playerHp -= damage;
 }
 Console.WriteLine("Player HP after attack: " + playerHp);
 
@@ -56,6 +71,39 @@ Console.WriteLine("Which position would you like to put the center lever into [u
 string centerLeverState = Console.ReadLine();
 Console.WriteLine("Which position would you like to put the right lever into [up|down]");
 string rightLeverState = Console.ReadLine();
+
+if (leftLeverState == "up")
+{
+    if (centerLeverState == "down")
+    {
+        if (rightLeverState == "up")
+        {
+            Console.WriteLine("The door that blocked your way opens. You are free to continue your adventure!");
+        }
+        else if (rightLeverState == "down")
+        {
+            Console.WriteLine("This way is dangerous!");
+        }
+    }
+    else if (centerLeverState == "up")
+    {
+        Console.WriteLine("Nice try");
+    }
+}
+else if (leftLeverState == "down")
+{
+    if (centerLeverState == "down")
+    {
+        if (rightLeverState == "up")
+        {
+            Console.WriteLine("This way is dangeous!");
+        }
+    }
+    else if (centerLeverState == "up")
+    {
+        Console.WriteLine("Nice try");
+    }
+}
 
 //a) There is only one correct solution to the puzzle:
 //Left Lever: up
